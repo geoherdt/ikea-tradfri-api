@@ -31,6 +31,8 @@ import nl.stijngroenen.tradfri.util.ApiEndpoint;
 import nl.stijngroenen.tradfri.util.CoapClient;
 import nl.stijngroenen.tradfri.util.Credentials;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.eclipse.californium.core.config.CoapConfig;
+import org.eclipse.californium.scandium.config.DtlsConfig;
 
 /**
  * The class that is used to communicate with the IKEA TRÅDFRI gateway
@@ -39,6 +41,11 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @version 1.2.0
  */
 public class Gateway {
+
+    static {
+        DtlsConfig.register();
+        CoapConfig.register();
+    }
 
     /**
      * A CoAP client that can be used to communicate with the IKEA TRÅDFRI gateway
